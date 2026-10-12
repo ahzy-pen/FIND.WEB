@@ -1,10 +1,498 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "OSAS FIND — Campus Lost & Found";
+    ViewData["Description"] = "OSAS FIND (Found Item & Notification Desk) is the campus lost-and-found system for the Colegio de Montalban community. Report lost belongings, discover found items, and follow a guided recovery process through the FIND mobile application.";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="home" aria-labelledby="hero-heading">
+    <div class="container">
+        <div class="hero__grid">
+            <div class="hero__content">
+                <p class="hero__eyebrow">
+                    <img src="~/images/cdm-crest.png" alt="" width="20" height="20" decoding="async" />
+                    Campus Lost &amp; Found &middot; Colegio de Montalban
+                </p>
+                <h1 id="hero-heading">Lost Something on Campus?<br /><span class="accent">Let&rsquo;s FIND It.</span></h1>
+                <p class="lead">OSAS FIND is a campus lost-and-found system designed to help the Colegio de Montalban community report lost belongings, discover found items, and manage the recovery process through one convenient platform.</p>
+                <div class="hero__actions">
+                    <a class="btn-find btn-find--solid btn-find--lg" href="https://portal.cdmconnect.online/" target="_blank" rel="noopener noreferrer">Open FIND App</a>
+                    <a class="btn-find btn-find--outline btn-find--lg" href="#how-it-works">Discover How It Works</a>
+                </div>
+                <ul class="hero__trust">
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></svg>
+                        For students, faculty &amp; visitors
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></svg>
+                        Coordinated with the school office
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></svg>
+                        One convenient platform
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hero__visual">
+                <!-- Original illustration: campus belongings waiting to be found -->
+                <svg viewBox="0 0 560 560" role="img" aria-label="Illustration of campus belongings: a backpack, an ID card on a lanyard, keys, a notebook, a pen, and a magnifying glass" width="560" height="560">
+                    <rect x="20" y="20" width="520" height="520" rx="44" fill="#E9F1EA" stroke="#D8E6DB" stroke-width="1.5"/>
+                    <circle cx="290" cy="290" r="195" fill="#DCEBDD" opacity="0.55"/>
+                    <circle cx="455" cy="115" r="26" fill="#F2C230" opacity="0.3"/>
+                    <circle cx="105" cy="145" r="14" fill="#106A2E" opacity="0.15"/>
+
+                    <!-- ground shadows -->
+                    <ellipse cx="300" cy="452" rx="98" ry="13" fill="#0B4A21" opacity="0.08"/>
+                    <ellipse cx="165" cy="470" rx="62" ry="9" fill="#0B4A21" opacity="0.07"/>
+
+                    <!-- water bottle (back right) -->
+                    <g>
+                        <rect x="462" y="226" width="32" height="26" rx="8" fill="#106A2E"/>
+                        <rect x="452" y="250" width="52" height="150" rx="20" fill="#CFE3D4"/>
+                        <rect x="452" y="302" width="52" height="46" fill="#FFFFFF" opacity="0.8"/>
+                        <circle cx="478" cy="325" r="9" fill="#106A2E"/>
+                    </g>
+
+                    <!-- notebook (left) -->
+                    <g transform="rotate(-8 130 340)">
+                        <rect x="70" y="262" width="120" height="158" rx="14" fill="#FFFFFF" stroke="#D8E0DA" stroke-width="2"/>
+                        <g fill="none" stroke="#106A2E" stroke-width="3">
+                            <circle cx="78" cy="280" r="4.5"/>
+                            <circle cx="78" cy="300" r="4.5"/>
+                            <circle cx="78" cy="320" r="4.5"/>
+                            <circle cx="78" cy="340" r="4.5"/>
+                            <circle cx="78" cy="360" r="4.5"/>
+                            <circle cx="78" cy="380" r="4.5"/>
+                            <circle cx="78" cy="400" r="4.5"/>
+                        </g>
+                        <rect x="158" y="262" width="9" height="158" fill="#E7B911" opacity="0.9"/>
+                        <rect x="92" y="288" width="52" height="8" rx="4" fill="#D9E2DC"/>
+                        <rect x="92" y="304" width="38" height="8" rx="4" fill="#E4EAE6"/>
+                    </g>
+
+                    <!-- pen -->
+                    <g transform="rotate(38 150 250)">
+                        <rect x="142" y="238" width="15" height="88" rx="7.5" fill="#106A2E"/>
+                        <polygon points="142,326 157,326 149.5,344" fill="#8FAF9B"/>
+                        <polygon points="146.5,344 152.5,344 149.5,353" fill="#12241A"/>
+                        <rect x="148" y="228" width="5" height="18" rx="2.5" fill="#E7B911"/>
+                    </g>
+
+                    <!-- backpack (center) -->
+                    <g>
+                        <rect x="240" y="208" width="26" height="150" rx="13" fill="#0B4A21"/>
+                        <rect x="334" y="208" width="26" height="150" rx="13" fill="#0B4A21"/>
+                        <rect x="279" y="200" width="42" height="26" rx="13" fill="#0B4A21"/>
+                        <rect x="212" y="222" width="176" height="216" rx="38" fill="#106A2E"/>
+                        <rect x="380" y="302" width="30" height="64" rx="15" fill="#0C5A25"/>
+                        <rect x="240" y="314" width="120" height="94" rx="24" fill="#0C5A25"/>
+                        <rect x="252" y="332" width="96" height="8" rx="4" fill="#E7B911"/>
+                        <circle cx="348" cy="336" r="6.5" fill="#F2C230"/>
+                        <rect x="346" y="336" width="4" height="10" rx="2" fill="#F2C230"/>
+                    </g>
+
+                    <!-- keys -->
+                    <g>
+                        <circle cx="150" cy="398" r="22" fill="none" stroke="#E7B911" stroke-width="8"/>
+                        <g transform="rotate(28 150 398)">
+                            <rect x="168" y="392" width="58" height="12" rx="6" fill="#F2C230" stroke="#D9A90C" stroke-width="1.5"/>
+                            <rect x="210" y="404" width="8" height="11" rx="2" fill="#F2C230"/>
+                            <rect x="198" y="404" width="8" height="8" rx="2" fill="#F2C230"/>
+                        </g>
+                        <g transform="rotate(-32 150 398)">
+                            <rect x="168" y="392" width="44" height="12" rx="6" fill="#F2C230" stroke="#D9A90C" stroke-width="1.5"/>
+                            <rect x="202" y="404" width="8" height="9" rx="2" fill="#F2C230"/>
+                        </g>
+                    </g>
+
+                    <!-- ID card on lanyard (floating) -->
+                    <g class="float-slow">
+                        <g transform="rotate(-7 415 205)">
+                            <path d="M415,152 C404,112 384,96 368,78" stroke="#E7B911" stroke-width="7" fill="none" stroke-linecap="round"/>
+                            <path d="M415,152 C426,112 446,96 462,78" stroke="#E7B911" stroke-width="7" fill="none" stroke-linecap="round"/>
+                            <circle cx="368" cy="74" r="8" fill="#E7B911"/>
+                            <circle cx="462" cy="74" r="8" fill="#E7B911"/>
+                            <rect x="330" y="150" width="170" height="110" rx="14" fill="#FFFFFF" stroke="#D8E0DA" stroke-width="2"/>
+                            <rect x="344" y="166" width="52" height="52" rx="8" fill="#CFE3D4"/>
+                            <circle cx="370" cy="182" r="10" fill="#8FAF9B"/>
+                            <rect x="358" y="192" width="24" height="26" rx="10" fill="#8FAF9B"/>
+                            <rect x="408" y="168" width="76" height="9" rx="4.5" fill="#D9E2DC"/>
+                            <rect x="408" y="184" width="58" height="9" rx="4.5" fill="#E4EAE6"/>
+                            <rect x="408" y="200" width="66" height="9" rx="4.5" fill="#E4EAE6"/>
+                            <circle cx="472" cy="240" r="10" fill="#E7B911"/>
+                            <path d="M467,240 l4,4 l7,-8" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </g>
+
+                    <!-- magnifying glass (floating) -->
+                    <g class="float-slower">
+                        <g transform="rotate(45 182 182)">
+                            <rect x="175.5" y="182" width="13" height="58" rx="6.5" fill="#E7B911" stroke="#D9A90C" stroke-width="1.5"/>
+                        </g>
+                        <circle cx="150" cy="150" r="44" fill="#FFFFFF" opacity="0.92" stroke="#106A2E" stroke-width="10"/>
+                        <circle cx="150" cy="150" r="13" fill="#106A2E"/>
+                        <path d="M143,150.5 l5,5 l9,-11" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+
+                    <!-- sparkles -->
+                    <path d="M92,84 v16 M84,92 h16" stroke="#F2C230" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M482,418 v12 M476,424 h12" stroke="#F2C230" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="118" cy="478" r="5" fill="#106A2E" opacity="0.3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="section section--tint" id="about" aria-labelledby="about-heading">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">About FIND</p>
+            <h2 id="about-heading">What Is OSAS FIND?</h2>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <p>OSAS FIND stands for <strong>Found Item &amp; Notification Desk</strong>. It is a campus-focused lost-and-found system intended to help students and authorized school personnel manage reports of lost and found belongings at Colegio de Montalban.</p>
+                <p>Instead of relying on scattered, word-of-mouth searches, OSAS FIND brings lost-and-found concerns into one organized place — so misplaced belongings have a better chance of making their way back to their owners.</p>
+            </div>
+
+            <ul class="value-list">
+                <li class="value-item">
+                    <span class="value-item__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M7.5 10.5h6M10.5 7.5v6"/></svg>
+                    </span>
+                    <div>
+                        <h3>A convenient place to discover lost and found reports.</h3>
+                        <p>Browse current reports from one central location instead of checking multiple places.</p>
+                    </div>
+                </li>
+                <li class="value-item">
+                    <span class="value-item__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="12" height="15" rx="2.5"/><rect x="9.5" y="3" width="5" height="4" rx="1.5"/><path d="M9 11h6M9 14.5h6M9 18h4"/></svg>
+                    </span>
+                    <div>
+                        <h3>A more organized way to submit and review item information.</h3>
+                        <p>Structured reports help the right people identify and match belongings more quickly.</p>
+                    </div>
+                </li>
+                <li class="value-item">
+                    <span class="value-item__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M12 6h7l-2 2.5 2 2.5h-7"/><path d="M8 21h8"/></svg>
+                    </span>
+                    <div>
+                        <h3>A guided claiming process for belongings.</h3>
+                        <p>Clear steps walk students through submitting the information needed to establish ownership.</p>
+                    </div>
+                </li>
+                <li class="value-item">
+                    <span class="value-item__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8l8-4 8 4"/><rect x="5" y="8" width="14" height="13" rx="1.5"/><path d="M10 21v-4h4v4"/><path d="M8.5 12h2M13.5 12h2M8.5 15.5h2M13.5 15.5h2"/></svg>
+                    </span>
+                    <div>
+                        <h3>A clearer recovery process coordinated with the appropriate school office.</h3>
+                        <p>Authorized personnel review reports and coordinate recovery through the designated school office.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="about-note">
+            <span class="about-note__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.5h.01"/></svg>
+            </span>
+            <div>
+                <h3>This website introduces OSAS FIND.</h3>
+                <p>To report a lost item, browse found-item reports, or submit a claim, open the FIND mobile application — the operational system where all reporting, searching, and claiming takes place.</p>
+                <a class="btn-find btn-find--solid" href="https://portal.cdmconnect.online/" target="_blank" rel="noopener noreferrer">Open FIND App</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ HOW IT WORKS ============================ -->
+<section class="section" id="how-it-works" aria-labelledby="how-heading">
+    <div class="container">
+        <div class="section-head section-head--center">
+            <p class="eyebrow">How It Works</p>
+            <h2 id="how-heading">Recovery in Three Simple Steps</h2>
+            <p class="section-lead">The FIND process keeps every step organized and coordinated through the school office.</p>
+        </div>
+
+        <ol class="steps">
+            <li class="step-card">
+                <span class="step-card__number">01</span>
+                <span class="step-card__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+                </span>
+                <h3>Report or Search</h3>
+                <p>Students can report a lost item or browse found-item reports using the FIND mobile application.</p>
+            </li>
+            <li class="step-card">
+                <span class="step-card__number">02</span>
+                <span class="step-card__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="12" height="15" rx="2.5"/><rect x="9.5" y="3" width="5" height="4" rx="1.5"/><path d="M9 11h6M9 14.5h4"/><path d="M14.5 15.5l3 3-4.5 4.5h-3v-3z"/></svg>
+                </span>
+                <h3>Submit a Claim</h3>
+                <p>When a found item matches a student&rsquo;s belongings, the student can submit a claim and provide the required identifying information.</p>
+            </li>
+            <li class="step-card">
+                <span class="step-card__number">03</span>
+                <span class="step-card__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 2.5v5.5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5.5z"/><path d="M9 11.5l2.2 2.2 4-4.5"/></svg>
+                </span>
+                <h3>Verify and Recover</h3>
+                <p>Authorized personnel review claims and coordinate the appropriate recovery process. Approved students follow the instructions provided by the system and the designated school office.</p>
+            </li>
+        </ol>
+
+        <p class="steps-note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5a6b60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>
+            Every step is coordinated with the school office — no private handovers, appointments, or booking is required.
+        </p>
+    </div>
+</section>
+
+<!-- ============================ FEATURES ============================ -->
+<section class="section section--tint" id="features" aria-labelledby="features-heading">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">What It Offers</p>
+            <h2 id="features-heading">Features That Support Recovery</h2>
+            <p class="section-lead">The FIND system is built around the everyday task of reuniting students with their belongings.</p>
+        </div>
+
+        <div class="features-grid">
+            <article class="feature-card">
+                <span class="feature-card__icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h3.5"/><path d="M16 15v6M13 18h6"/></svg>
+                </span>
+                <h3>Lost Item Reporting</h3>
+                <p>Record details about belongings that are missing.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-card__icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg>
+                </span>
+                <h3>Found Item Discovery</h3>
+                <p>Browse found-item reports to identify potentially recovered belongings.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-card__icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="12" height="15" rx="2.5"/><rect x="9.5" y="3" width="5" height="4" rx="1.5"/><path d="M9 15.5l2.2 2.2 4-4.5"/></svg>
+                </span>
+                <h3>Claim Submission</h3>
+                <p>Submit a claim with information that helps establish ownership.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-card__icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a5 5 0 0 1 5 5v3.5l1.5 3h-13l1.5-3V9a5 5 0 0 1 5-5z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
+                </span>
+                <h3>Claim Status Updates</h3>
+                <p>Check the progress of submitted claims where supported by the mobile app.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-card__icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#106a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.5"/><path d="M3.5 20c0-3.5 2.5-5.5 5.5-5.5s5.5 2 5.5 5.5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M15.5 14.8c2.8 0 5 1.8 5 5.2"/></svg>
+                </span>
+                <h3>Organized Recovery Process</h3>
+                <p>Support a more organized recovery process coordinated with authorized school personnel.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ WHY OSAS FIND ============================ -->
+<section class="section section--green" id="why" aria-labelledby="why-heading">
+    <div class="container">
+        <div class="why-grid">
+            <div class="section-head">
+                <p class="eyebrow">Why OSAS FIND</p>
+                <h2 id="why-heading">A Calmer Way to Handle Lost Belongings</h2>
+                <p class="section-lead">Losing a belonging on campus is stressful enough. OSAS FIND exists to make the search and recovery experience clearer for everyone involved.</p>
+            </div>
+
+            <ul class="benefit-list">
+                <li>
+                    <span class="benefit-list__mark">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f2c230" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                    </span>
+                    <div>
+                        <h3>One convenient platform for lost-and-found information.</h3>
+                        <p>Reports and guidance live in a single, central place.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="benefit-list__mark">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f2c230" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                    </span>
+                    <div>
+                        <h3>Less confusion when reporting and searching for belongings.</h3>
+                        <p>Clear reports replace scattered, word-of-mouth searches.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="benefit-list__mark">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f2c230" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                    </span>
+                    <div>
+                        <h3>A more organized claiming process.</h3>
+                        <p>Structured steps help establish ownership correctly.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="benefit-list__mark">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f2c230" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                    </span>
+                    <div>
+                        <h3>Better visibility into the recovery process.</h3>
+                        <p>Know where your report or claim stands.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="benefit-list__mark">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f2c230" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                    </span>
+                    <div>
+                        <h3>Support for a more responsible and connected campus community.</h3>
+                        <p>A shared system encourages care for communal spaces.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ INSTITUTIONAL IDENTITY ============================ -->
+<section class="section" id="community" aria-labelledby="community-heading">
+    <div class="container">
+        <div class="identity-card">
+            <div class="identity-card__crest">
+                <img src="~/images/cdm-crest.png" alt="Colegio de Montalban crest emblem" width="170" height="170" loading="lazy" decoding="async" />
+            </div>
+            <div class="identity-card__body">
+                <p class="eyebrow">Institutional Identity</p>
+                <h2 id="community-heading">Serving the Colegio de Montalban Community</h2>
+                <p>OSAS FIND supports a more organized approach to lost-and-found concerns within the school community, helping students and authorized personnel work toward the safe recovery of misplaced belongings.</p>
+                <span class="identity-card__tag">For the students &amp; personnel of Colegio de Montalban</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section section--tint" id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+        <div class="section-head section-head--center">
+            <p class="eyebrow">Common Questions</p>
+            <h2 id="faq-heading">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-wrap">
+            <div class="faq-item open">
+                <h3>
+                    <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">
+                        <span>What is OSAS FIND?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1" aria-hidden="false">
+                    <div>
+                        <p>OSAS FIND stands for Found Item &amp; Notification Desk. It is a campus lost-and-found system for the Colegio de Montalban community, providing a convenient place to report lost belongings, discover found items, and follow a guided claiming process coordinated with authorized school personnel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                        <span>Who can use the FIND system?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2" aria-hidden="true">
+                    <div>
+                        <p>OSAS FIND is intended for students, faculty, and authorized school personnel of Colegio de Montalban. Members of the school community can use the FIND mobile application to report lost items, browse found-item reports, and submit claims for recovery.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                        <span>How do I report a lost or found item?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3" aria-hidden="true">
+                    <div>
+                        <p>Reporting is done through the FIND mobile application. Open the app, choose whether you are reporting a lost or a found item, and provide the requested details such as the item description, location, and date. Accurate details help personnel match reports more quickly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                        <span>How can I claim a found item?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4" aria-hidden="true">
+                    <div>
+                        <p>Browse found-item reports in the FIND mobile application. When you find a report that matches your belongings, submit a claim and provide the identifying information requested by the system so authorized personnel can verify ownership.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                        <span>What happens after my claim is approved?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5" aria-hidden="true">
+                    <div>
+                        <p>Authorized personnel review submitted claims and coordinate the appropriate recovery process. If your claim is approved, follow the instructions provided by the system and the designated school office to recover your belonging.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+                        <span>Where can I access the FIND mobile application?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6" aria-hidden="true">
+                    <div>
+                        <p>The FIND mobile application is available at
+                            <a href="https://portal.cdmconnect.online/" target="_blank" rel="noopener noreferrer">https://portal.cdmconnect.online/</a>.
+                            Open the link on your mobile device to access the system and get started.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ FINAL CTA ============================ -->
+<section class="section section--green cta" id="get-app" aria-labelledby="cta-heading">
+    <div class="container">
+        <img class="cta__logo" src="~/images/find-logo-white.png" alt="OSAS FIND logo" width="120" height="120" loading="lazy" decoding="async" />
+        <h2 id="cta-heading">Your Lost Item Might Be Closer Than You Think.</h2>
+        <p>Start searching, report a missing belonging, or check the FIND system to take the next step toward recovery.</p>
+        <a class="btn-find btn-find--light btn-find--lg" href="https://portal.cdmconnect.online/" target="_blank" rel="noopener noreferrer">Open FIND App</a>
+    </div>
+</section>

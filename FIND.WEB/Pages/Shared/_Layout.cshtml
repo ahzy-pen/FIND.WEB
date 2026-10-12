@@ -3,49 +3,101 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FIND.WEB</title>
+    <title>@ViewData["Title"] - OSAS FIND | Colegio de Montalban</title>
+    <meta name="description" content="@(ViewData["Description"] ?? "OSAS FIND (Found Item & Notification Desk) is the campus lost-and-found system for the Colegio de Montalban community. Report lost belongings, discover found items, and follow a guided recovery process.")" />
+    <meta name="theme-color" content="#0b4a21" />
+    <meta property="og:title" content="OSAS FIND — Campus Lost & Found | Colegio de Montalban" />
+    <meta property="og:description" content="Report lost belongings, discover found items, and follow a guided recovery process — all coordinated through the FIND mobile application." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FIND.WEB.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">FIND.WEB</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" id="site-header">
+        <nav class="site-nav container" aria-label="Main navigation">
+            <a class="site-brand" href="#home" aria-label="OSAS FIND — back to top">
+                <img class="site-brand__logo" src="~/images/find-logo-green.png" alt="OSAS FIND logo" width="44" height="44" decoding="async" />
+                <span>
+                    <span class="site-brand__name">OSAS <strong>FIND</strong></span>
+                    <span class="site-brand__sub">Colegio de Montalban</span>
+                </span>
+            </a>
+
+            <span class="site-school">
+                <img src="~/images/cdm-crest.png" alt="Colegio de Montalban crest" width="30" height="30" decoding="async" />
+                Colegio de Montalban
+            </span>
+
+            <button class="nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu"
+                    aria-controls="siteNavMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-collapse collapse" id="siteNavMenu">
+                <ul class="nav-menu">
+                    <li><a class="nav-link" href="#home">Home</a></li>
+                    <li><a class="nav-link" href="#about">About FIND</a></li>
+                    <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                    <li><a class="nav-link" href="#features">Features</a></li>
+                    <li><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+                <a class="btn-find btn-find--solid nav-cta" href="https://portal.cdmconnect.online/" target="_blank" rel="noopener noreferrer">Open FIND App</a>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <main id="main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
-            &copy; 2026 - FIND.WEB - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img class="footer-brand__logo" src="~/images/find-logo-white.png" alt="OSAS FIND logo" width="118" height="118" loading="lazy" decoding="async" />
+                    <p class="footer-name">OSAS FIND — Found Item &amp; Notification Desk</p>
+                    <p class="footer-desc">The campus lost-and-found system for the Colegio de Montalban community. This is the promotional website for OSAS FIND — report, search, and claim items through the FIND mobile application.</p>
+                </div>
+
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <p class="footer-heading">Explore</p>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About FIND</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-app">
+                    <p class="footer-heading">Mobile Application</p>
+                    <p>Report a lost item, browse found-item reports, and submit a claim through the FIND mobile application.</p>
+                    <a class="btn-find btn-find--light" href="https://portal.cdmconnect.online/" target="_blank" rel="noopener noreferrer">Open FIND App</a>
+                </div>
+
+                <div class="footer-school">
+                    <span class="footer-school__badge">
+                        <img src="~/images/cdm-crest.png" alt="Colegio de Montalban crest" width="70" height="70" loading="lazy" decoding="async" />
+                    </span>
+                    <span>Colegio de Montalban</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> OSAS FIND &middot; Colegio de Montalban. All rights reserved.</p>
+                <p>Promotional website only — the operational lost-and-found system is available through the FIND mobile application.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
